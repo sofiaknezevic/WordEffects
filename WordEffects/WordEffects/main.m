@@ -16,6 +16,8 @@ void options(){
     printf ("4. Canadianize \n");
     printf ("5. I'll respond to your questions & || exclamations \n");
     printf ("6. No-More-Spaces \n");
+    printf ("7. Word Count (separated by spaces)\n");
+    printf ("8. Remove all your wacky punctuation!?.,;:\n");
     printf ("0 -- to exit!\n");
 }
 
@@ -89,7 +91,10 @@ int main(int argc, const char * argv[]) {
             
             case 5:{
                 //respond to questions & exclamations
+                
+                //retrieve the last character in the string
                 NSString *last = [inputString substringFromIndex:(numberize-2)];
+                
                 if([last containsString:(question)]){
                     
                     NSLog(@"I don't know");
@@ -115,8 +120,31 @@ int main(int argc, const char * argv[]) {
                 NSLog(@"Nospaces: %@", noSpaces);
                 
                 break;
+            }
+                
+            case 7:{
+                //word count
+                int count;
+                
+                for(int i = 0; i<[inputString length]; i++){
+                    
+                    if([inputString characterAtIndex:i] == ' '){
+                        
+                        count++;
+                        
+                    }
+                }
+                
+                NSLog(@"You typed %i words", (count+1));
                 
             }
+                break;
+                
+            case 8:{
+                //I need to go to bed, I'll finish this tomorrowW!!!!!!! :) 
+                break;
+            }
+                
             
             default:
             break;
